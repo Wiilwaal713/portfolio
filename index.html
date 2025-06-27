@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hussein's Portfolio</title>
+    <title>Abdullahi Hussein's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -207,7 +207,7 @@
             color: var(--gold);
         }
 
-        /* Hero Section */
+        /* Hero Section - FIXED */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -228,9 +228,17 @@
             z-index: -1;
         }
 
-        .hero-content {
+        .hero .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: relative;
-            max-width: 700px;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 55%;
+            padding-right: 5%;
         }
 
         .hero h1 {
@@ -254,28 +262,27 @@
         }
 
         .hero-image {
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        transform: translateY(-50%);
-        width: 35%;
-        height: 85%;
-        border-radius: 5px;
-        overflow: hidden;
-        border: 1px solid rgba(198, 169, 105, 0.2);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-        opacity: 0.95;
-        z-index: 1;
-    }
+            flex: 0 0 38%;
+            max-width: 38%;
+            height: 85%;
+            max-height: 550px;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid rgba(198, 169, 105, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            opacity: 0.95;
+            z-index: 1;
+            position: relative;
+        }
         
         .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-        animation: floatFrame 8s ease-in-out infinite;
-        aspect-ratio: 3/4;
-    }
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            animation: floatFrame 8s ease-in-out infinite;
+            aspect-ratio: 3/4;
+        }
 
         .hero-image:hover img {
             transform: scale(1.03);
@@ -290,10 +297,26 @@
             height: 100%;
             background: linear-gradient(
                 to bottom right,
-                rgba(109, 26, 54, 0.2),
-                rgba(10, 25, 47, 0.5)
+                rgba(109, 26, 54, 0.15),
+                rgba(10, 25, 47, 0.25)
             );
             z-index: 2;
+        }
+
+        /* Animation Keyframes */
+        @keyframes floatFrame {
+            0% { 
+                transform: translateY(0);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            }
+            50% { 
+                transform: translateY(-10px);
+                box-shadow: 0 30px 60px rgba(198, 169, 105, 0.25);
+            }
+            100% { 
+                transform: translateY(0);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            }
         }
 
         /* Projects Section */
@@ -619,19 +642,38 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-image {
-                position: relative;
-                width: 100%;
-                height: 400px;
-                transform: none;
-                margin-top: 50px;
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 40px;
             }
-
+            
             .hero-content {
                 max-width: 100%;
-                text-align: center;
+                padding-right: 0;
             }
-
+            
+            .hero-image {
+                flex: none;
+                max-width: 400px;
+                width: 100%;
+                height: auto;
+                margin: 40px auto 0;
+                max-height: none;
+            }
+            
+            .hero-image img {
+                position: static;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                animation: none;
+            }
+            
+            .hero-image::before {
+                display: none;
+            }
+            
             .contact-container {
                 flex-direction: column;
             }
@@ -671,6 +713,10 @@
             .hero-subtitle {
                 font-size: 1.3rem;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -685,352 +731,11 @@
             section {
                 padding: 70px 0;
             }
-        @keyframes floatFrame {
-            0% { 
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
-                            0 0 0 1px rgba(198, 169, 105, 0.2); 
-            }
-            50% { 
-                box-shadow: 0 30px 60px rgba(198, 169, 105, 0.25),
-                            0 0 0 3px rgba(198, 169, 105, 0.3); 
-            }
-            100% { 
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
-                            0 0 0 1px rgba(198, 169, 105, 0.2); 
-            }
-        @media (min-width: 993px) {
-            .hero-image {
-                right: 5% !important; /* Move it 5% from the right edge */
-                width: 32%; /* Slightly reduce width */
-                transform: translateY(-50%) scale(0.98); /* Subtle scaling */
-                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 
-                            0 0 0 1px rgba(198, 169, 105, 0.3); /* Enhanced shadow */
-            }
-            
-            .hero-image::before {
-                background: linear-gradient(
-                to bottom right,
-                rgba(109, 26, 54, 0.15),
-                rgba(10, 25, 47, 0.25)
-                ); /* Lighter overlay */
-            }
-            .hero::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 10%;
-                height: 100%;
-                background: linear-gradient(to right, transparent, var(--dark-navy));
-                z-index: 2;
-                pointer-events: none;
-                }
-                /* Fix for hero image cutoff */
-        @media (min-width: 992px) {
-            .hero .container {
-                padding-right: 5%; /* Creates safe space on right */
-        }
-        
-            .hero-image {
-                right: 5%; /* Move image left */
-                width: 30%; /* Slightly reduce width */
-                transform: translateY(-50%) translateX(0); /* Reset transform */
-            }
-            
-        /* Add scrollbar compensation */
-            body {
-                overflow-x: hidden;
-            }
-        }
-
-        /* Alternative positioning method */
-        @media (min-width: 1200px) {
-            .hero-image {
-                right: calc(50% - 600px); /* Precisely positions image */
-        }
-        /* Animation Keyframes */
-        @keyframes floatFrame {
-            0% { 
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
-                            0 0 0 1px rgba(198, 169, 105, 0.2); 
-            }
-            50% { 
-                box-shadow: 0 30px 60px rgba(198, 169, 105, 0.25),
-                            0 0 0 3px rgba(198, 169, 105, 0.3); 
-            }
-            100% { 
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
-                            0 0 0 1px rgba(198, 169, 105, 0.2); 
-            }
-        }
-
-        /* Fix for hero image cutoff on all desktops */
-        @media (min-width: 993px) {
-            .hero-image {
-                right: 5%;
-                width: 32%;
-            }
-        }
-
-        /* Extra space for larger screens */
-        @media (min-width: 1600px) {
-            .hero-image {
-                right: 8%;
-            }
-        }
-        @media (min-width: 1600px) {
-            .hero-image {
-                right: 10%; /* More space on extra-wide screens */
-                max-width: 30%; /* Slightly larger on big screens */
-    }
-
-        @media (max-width: 992px) {
-            .hero-image {
-                position: relative !important;
-                top: auto !important;
-                right: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 400px !important;
-                height: auto !important;
-                margin: 40px auto 0 !important;
-                aspect-ratio: 3/4; /* Maintain portrait ratio */
-            }
-    
-            .hero-image img {
-                position: static !important;
-                width: 100% !important;
-                height: auto !important;
-                object-fit: contain !important; /* Show entire image */
-            }
-        }
-
-        /* Extra adjustment for small screens */
-        @media (max-width: 480px) {
-            .hero-image {
-                max-width: 90% !important; /* Slightly larger on small screens */
-            }
-            
-            .hero-image img {
-                max-height: 60vh !important; /* Prevent vertical overflow */
-            }
-/* ================================== */
-/* Mobile-Specific Hero Image Fix */
-/* ================================== */
-        @media (max-width: 992px) {
-            .hero-image {
-                position: relative !important;
-                top: auto !important;
-                right: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 80% !important;
-                height: auto !important;
-                margin: 40px auto 0 !important;
-                aspect-ratio: 3/4;
-            }
-            
-            .hero-image img {
-                position: static !important;
-                width: 100% !important;
-                height: auto !important;
-                object-fit: contain !important;
-            }
-    
-            .hero-image::before {
-                display: none !important; /* Remove overlay on mobile */
-            }
-        }
-
-        /* Fix for small mobile screens */
-        @media (max-width: 480px) {
-            .hero-image {
-                max-width: 90% !important;
-            }
-            
-            .hero-image img {
-                max-height: 60vh !important;
-            }
-        }
-    /* ================================== */
-/* Guaranteed Mobile Hero Image Fix */
-/* ================================== */
-
-@media (max-width: 992px) {
-    .hero .container {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 40px;
-    }
-    
-    .hero-image {
-        /* Reset all positioning */
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
-        left: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        
-        /* Reset sizing */
-        width: 100% !important;
-        max-width: 400px !important;
-        height: auto !important;
-        max-height: none !important;
-        
-        /* Center and space properly */
-        margin: 40px auto 0 !important;
-        display: block;
-        
-        /* Remove effects that might cause clipping */
-        overflow: visible !important;
-    }
-    
-    .hero-image img {
-        /* Reset image styles */
-        position: static !important;
-        width: 100% !important;
-        height: auto !important;
-        max-width: 100% !important;
-        max-height: none !important;
-        object-fit: contain !important;
-        aspect-ratio: unset !important;
-        
-        /* Remove animations that might interfere */
-        animation: none !important;
-    }
-    
-    .hero-image::before {
-        /* Remove overlay */
-        display: none !important;
-    }
-    
-    .hero-content {
-        max-width: 100% !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-image {
-        max-width: 90% !important;
-    }
-     /* ================================== */
-        /* Hero Image Fixes */
-        /* ================================== */
-        @media (min-width: 993px) {
-            .hero .container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                position: relative;
-                padding-right: 5%; /* Creates safe space on right */
-            }
-            
-            .hero-content {
-                flex: 1;
-                max-width: 55%;
-                padding-right: 5%; /* Space between content and image */
-            }
             
             .hero-image {
-                position: relative !important;
-                top: auto !important;
-                right: auto !important;
-                left: auto !important;
-                bottom: auto !important;
-                transform: none !important;
-                flex: 0 0 35%;
-                height: 85%;
-                max-height: 600px;
-                margin: 0 !important;
-                overflow: visible;
-                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 
-                            0 0 0 1px rgba(198, 169, 105, 0.3);
-            }
-            
-            .hero-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                animation: floatFrame 8s ease-in-out infinite;
-                aspect-ratio: 3/4;
-            }
-            
-            /* Remove overlay on desktop */
-            .hero-image::before {
-                background: linear-gradient(
-                    to bottom right,
-                    rgba(109, 26, 54, 0.15),
-                    rgba(10, 25, 47, 0.25)
-                );
+                max-width: 90%;
             }
         }
-
-        @media (min-width: 1200px) {
-            .hero-image {
-                flex: 0 0 30%;
-            }
-        }
-
-        @media (min-width: 1600px) {
-            .hero-image {
-                flex: 0 0 28%;
-                max-height: 650px;
-            }
-        }
-
-        /* ================================== */
-        /* Mobile Fixes */
-        /* ================================== */
-        @media (max-width: 992px) {
-            .hero-image {
-                position: relative !important;
-                width: 100% !important;
-                max-width: 400px !important;
-                height: auto !important;
-                margin: 40px auto 0 !important;
-                aspect-ratio: 3/4;
-            }
-            
-            .hero-image img {
-                position: static !important;
-                width: 100% !important;
-                height: auto !important;
-                object-fit: contain !important;
-                animation: none !important;
-            }
-            
-            .hero-image::before {
-                display: none !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-image {
-                max-width: 90% !important;
-            }
-        }
-        
-        /* ================================== */
-        /* Animation Keyframes */
-        /* ================================== */
-        @keyframes floatFrame {
-            0% { 
-                transform: translateY(0);
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            }
-            50% { 
-                transform: translateY(-10px);
-                box-shadow: 0 30px 60px rgba(198, 169, 105, 0.25);
-            }
-            100% { 
-                transform: translateY(0);
-                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            }
-        }
-}
-    }
     </style>
 </head>
 <body>
@@ -1064,7 +769,7 @@
                 </div>
             </div>
             <div class="hero-image">
-    <img src="https://raw.githubusercontent.com/Wiilwaal713/portfolio/main/pfp.jpg" alt="Professional Portrait">
+                <img src="https://raw.githubusercontent.com/Wiilwaal713/portfolio/main/pfp.jpg" alt="Abdullahi Hussein Mohamed">
             </div>
         </div>
     </section>
@@ -1075,37 +780,34 @@
             <h2>Featured <span class="text-gold">Projects</span></h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">Luxury Brand Platform</div>
+                    <div class="project-image">Process Optimization</div>
                     <div class="project-content">
-                        <h3>Elegance Redefined</h3>
-                        <p>A sophisticated e-commerce experience for a premier luxury fashion brand, featuring bespoke design elements.</p>
+                        <h3>Chemical Plant Efficiency</h3>
+                        <p>Designed and implemented process improvements that increased production efficiency by 18% while reducing waste.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> Details</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">Investment Dashboard</div>
+                    <div class="project-image">Research Paper</div>
                     <div class="project-content">
-                        <h3>Wealth Management Suite</h3>
-                        <p>An exclusive financial dashboard for high-net-worth investors with real-time analytics and reporting.</p>
+                        <h3>Nanomaterial Synthesis</h3>
+                        <p>Developed novel methods for nanomaterial production with enhanced catalytic properties for industrial applications.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> Details</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fas fa-book-open"></i> Read Paper</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-image">Art Gallery Platform</div>
+                    <div class="project-image">Safety Analysis</div>
                     <div class="project-content">
-                        <h3>Contemporary Art Space</h3>
-                        <p>A virtual gallery showcasing exclusive artworks from renowned contemporary artists worldwide.</p>
+                        <h3>Plant Safety Protocols</h3>
+                        <p>Created comprehensive safety protocols that reduced workplace accidents by 42% in chemical processing facilities.</p>
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i> Details</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fas fa-chart-line"></i> View Report</a>
                         </div>
                     </div>
                 </div>
@@ -1119,38 +821,38 @@
             <h2>My <span class="text-gold">Expertise</span></h2>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3><i class="fas fa-paint-brush"></i> Design & Frontend</h3>
+                    <h3><i class="fas fa-flask"></i> Core Engineering</h3>
                     <ul>
-                        <li>UI/UX Design</li>
-                        <li>Responsive Web Design</li>
-                        <li>CSS3 / Sass / Tailwind</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>React & Vue.js</li>
-                        <li>Animation & Interactivity</li>
+                        <li>Process Design & Optimization</li>
+                        <li>Chemical Reaction Engineering</li>
+                        <li>Thermodynamics & Kinetics</li>
+                        <li>Transport Phenomena</li>
+                        <li>Plant Design & Operation</li>
+                        <li>Safety & Risk Management</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Development</h3>
+                    <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
                     <ul>
-                        <li>Node.js & Express</li>
-                        <li>Python & Django</li>
-                        <li>RESTful API Design</li>
-                        <li>Database Architecture</li>
-                        <li>Cloud Deployment</li>
-                        <li>Performance Optimization</li>
+                        <li>Process Simulation (Aspen HYSYS)</li>
+                        <li>Data Analysis & Interpretation</li>
+                        <li>Quality Control Systems</li>
+                        <li>Laboratory Techniques</li>
+                        <li>Technical Documentation</li>
+                        <li>Project Management</li>
                     </ul>
                 </div>
                 
                 <div class="skill-category">
-                    <h3><i class="fas fa-chess-queen"></i> Strategy</h3>
+                    <h3><i class="fas fa-chart-line"></i> Analytical Skills</h3>
                     <ul>
-                        <li>Technical Consulting</li>
-                        <li>Digital Transformation</li>
-                        <li>Brand Positioning</li>
-                        <li>User Experience Strategy</li>
-                        <li>Conversion Optimization</li>
-                        <li>Project Leadership</li>
+                        <li>Process Troubleshooting</li>
+                        <li>Cost-Benefit Analysis</li>
+                        <li>Statistical Process Control</li>
+                        <li>Environmental Impact Assessment</li>
+                        <li>Root Cause Analysis</li>
+                        <li>Continuous Improvement</li>
                     </ul>
                 </div>
             </div>
@@ -1170,8 +872,8 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-researchgate"></i></a>
                     </div>
                 </div>
                 <form class="contact-form">
@@ -1197,8 +899,8 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Portfolio.</div>
-                <p>Crafting digital excellence with sophistication and precision.</p>
+                <div class="footer-logo">Abdullahi H. M.</div>
+                <p>Innovating chemical processes for a sustainable future.</p>
                 <div class="footer-links">
                     <a href="#home">Home</a>
                     <a href="#projects">Projects</a>
