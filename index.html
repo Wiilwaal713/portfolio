@@ -726,7 +726,30 @@
                 z-index: 2;
                 pointer-events: none;
                 }
+                /* Fix for hero image cutoff */
+        @media (min-width: 992px) {
+            .hero .container {
+                padding-right: 5%; /* Creates safe space on right */
         }
+        
+            .hero-image {
+                right: 5%; /* Move image left */
+                width: 30%; /* Slightly reduce width */
+                transform: translateY(-50%) translateX(0); /* Reset transform */
+            }
+            
+        /* Add scrollbar compensation */
+            body {
+                overflow-x: hidden;
+            }
+        }
+
+        /* Alternative positioning method */
+        @media (min-width: 1200px) {
+            .hero-image {
+                right: calc(50% - 600px); /* Precisely positions image */
+        }
+    }
     </style>
 </head>
 <body>
