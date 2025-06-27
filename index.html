@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophisticated Portfolio</title>
+    <title>Hussein's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -191,6 +191,7 @@
 
         nav ul li a:hover {
             color: var(--gold);
+            letter-spacing: 1.5px;
         }
 
         nav ul li a:hover::after {
@@ -273,6 +274,8 @@
             object-fit: cover;
             transition: transform 0.5s ease;
             animation: floatFrame 8s ease-in-out infinite;
+            loading: lazy;
+            aspect-ratio: 3/4;
         }
         
         .hero-image:hover img {
